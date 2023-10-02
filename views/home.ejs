@@ -1,0 +1,37 @@
+<%- include( "partials/header" ) -%> <!-- since ejs file starts looking for view file there fore dont write __dirname
+ as it is on view file agy btao kahan jana hai to access the foooter so go to partials inside view folder then inside
+ partials go to footer or header file -->
+    <h1>Home</h1>
+    <p>
+        <%= homeStartContent %>
+    </p>
+<!-- instead of trunate class using in p can also use the i.postBody.substring(0,100) +" ..."-->
+
+    <% postsHome.forEach(function(i) { %>
+     <h1> <%= i.postTitle %> </h1> 
+     <p>  <%= i.postBody.substring(0,100) +" ..." %>
+    <a href="/posts/<%=i._id%>">Read More</a> <!--<%= %> to use the value of bvriable place inside this tag-->
+    <% }) %>
+
+    <!--<%  console.log(postsHome) %> -->
+
+    <%- include("partials/footer.ejs") -%> <!-- this is our template for footer in all website of this project-->
+
+
+<!--
+        postHome is just like post in this ejs file see the get request in root in app.ejs file
+
+        for loop
+        <% for(var i=0;i<postsHome.length;i++) { %>
+            <% console.log(postsHome[i].postTitle); %>
+                <% } %>
+
+                    foreach loop
+                    <% postsHome.forEach(function(post) { %>
+                        console.log(post.postTitle);
+                        <% }) %>
+
+
+ <%= %> is the value tag it is used to prin tthe value of the variable not that variable name
+
+-->
